@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://manideepreddym.github.io/sitemap-index.xml
+Host: https://manideepreddym.github.io
