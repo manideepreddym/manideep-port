@@ -27,17 +27,17 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-7c234d1bbc9c0321044e.js"
+    "url": "webpack-runtime-ac1fb570d7bf8c5dc845.js"
   },
   {
     "url": "framework-8f58a5cbe3f4b3ef31af.js"
   },
   {
-    "url": "app-0749435c3fbd1bcdc9b7.js"
+    "url": "app-13e37019dff1a77502e0.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "51ba5d3e862b060f1a9d063ad7b3d597"
+    "revision": "51315d1bf1f4ca72cc2f8ee841268067"
   },
   {
     "url": "manifest.webmanifest",
@@ -146,12 +146,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/manideep-port/manideep-port`), ``)
+  pathname = pathname.replace(new RegExp(`^/manideep-port`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/manideep-port/manideep-port/app-0749435c3fbd1bcdc9b7.js`))) {
+  if (!resources || !(await caches.match(`/manideep-port/app-13e37019dff1a77502e0.js`))) {
     return await fetch(event.request)
   }
 
@@ -164,7 +164,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/manideep-port/manideep-port/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/manideep-port/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
